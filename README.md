@@ -1,6 +1,7 @@
 # Check ARIS2 Results
 Periodically check for results update published on the ARIS website for any given account
 
+
 # How to use
 
 1. Create `credentials.py` file
@@ -10,3 +11,9 @@ Periodically check for results update published on the ARIS website for any give
 5. Run `ARIS2Results.py` to start the checks
 
 When the script finds your results they will be automatically downloaded into `full_results.html`
+
+# Requirements
+
+1. Python 3.x
+2. Chromedriver
+3. Chrome Browser
