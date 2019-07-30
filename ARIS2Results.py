@@ -17,7 +17,11 @@ import os
 from selenium import webdriver # 3rd party modules
 from selenium.webdriver.common.keys import Keys
 
-import credentials # local modules
+try:
+	import credentials # local modules
+except:
+    print("\n>> You did not create a credentials.py file, Read the instructions on the Github page again\n\n")
+    raise
 
 def compare_last_table(htmlString):
     try:
