@@ -75,7 +75,7 @@ def navigate_aris_user(USERNAME, PASSWORD):
         driver.find_element_by_link_text('Course Results').click()
         time.sleep(randint(1,4))
 
-        driver.find_element_by_link_text('1st Year Results - 2018/19').click()
+        driver.find_element_by_css_selector("table td ul li a:last-child").click()
         time.sleep(randint(1,4))
 
         table_results = driver.find_element_by_css_selector("table:nth-child(2) td:nth-child(2)")
@@ -109,8 +109,6 @@ def navigate_aris_user(USERNAME, PASSWORD):
     print(f"The script ran for {int(time.time()-start_time)}s")    
  
 if __name__ == "__main__":
-    
-
     # Do not touch anything from this point
     username=credentials.__username__
     password=credentials.__password__
