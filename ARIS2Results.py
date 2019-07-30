@@ -75,7 +75,7 @@ def navigate_aris_user(USERNAME, PASSWORD):
         driver.find_element_by_link_text('Course Results').click()
         time.sleep(randint(1,4))
 
-        driver.find_element_by_css_selector("table td ul li a:last-child").click()
+        driver.find_element_by_css_selector("table td ul li:last-child a").click()
         time.sleep(randint(1,4))
 
         table_results = driver.find_element_by_css_selector("table:nth-child(2) td:nth-child(2)")
