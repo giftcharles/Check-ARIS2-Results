@@ -1,0 +1,5 @@
+chromedriver.exe
+geckodriver.log
+result_table.html
+full_results.html
+credentials.py
