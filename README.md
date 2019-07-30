@@ -1,5 +1,5 @@
 # Check ARIS2 Results
-Periodically check for results update published on the ARIS website for any given account
+Periodically check for results update published on the ARIS website for any given account/student
 
 
 # How to use
