@@ -72,7 +72,7 @@ def compare_last_table(htmlString):
     return False    
     
 
-def navigate_aris_user(USERNAME, PASSWORD, headless=False):
+def navigate_aris_user(USERNAME, PASSWORD, headless=True):
     start_time= time.time()
     aris_url = r"https://aris2.udsm.ac.tz/index.php"
     chrome_options = Options()
