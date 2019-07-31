@@ -44,6 +44,7 @@ import os
 
 from selenium import webdriver # 3rd party modules
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options 
 
 try:
 	import credentials # local modules
@@ -52,7 +53,6 @@ except:
     raise
 
 def compare_last_table(htmlString):
-
     if not os.path.isfile("result_table.html"):
         with open("result_table.html", "w", encoding="utf8") as f:
             f.write(htmlString)
@@ -72,10 +72,15 @@ def compare_last_table(htmlString):
     return False    
     
 
-def navigate_aris_user(USERNAME, PASSWORD):
+def navigate_aris_user(USERNAME, PASSWORD, headless=False):
     start_time= time.time()
     aris_url = r"https://aris2.udsm.ac.tz/index.php"
-    driver = webdriver.Chrome()
+    chrome_options = Options()
+
+    if headless == True:
+        chrome_options.add_argument("--headless")
+
+    driver = webdriver.Chrome(chrome_options=chrome_options)
     try:
         driver.get(aris_url)
 
@@ -84,7 +89,6 @@ def navigate_aris_user(USERNAME, PASSWORD):
             driver.close()
             return True
     
-
         username_input = driver.find_element_by_name("username")
         time.sleep(randint(1,3))
         password_input = driver.find_element_by_name("password")
@@ -113,7 +117,6 @@ def navigate_aris_user(USERNAME, PASSWORD):
         return True
 
     if compare_last_table(htmlString):
-
         with open("result_table.html", "w", encoding="utf8") as f:
             f.write(htmlString)
 
@@ -122,7 +125,6 @@ def navigate_aris_user(USERNAME, PASSWORD):
         return True
 
     else:
-
         with open("full_results.html", "w", encoding="utf8") as f:
             f.write(driver.page_source)
 
@@ -137,10 +139,11 @@ if __name__ == "__main__":
     username=credentials.__username__
     password=credentials.__password__
     wait_time=credentials.__waittime__
+    headless=credentials.__headless__
 
     print(f">> ID Number: {username}\n>> password: {'*' * len(password)}")
     
-    while navigate_aris_user(username, password):
+    while navigate_aris_user(username, password, headless):
         if wait_time==0:
             sleep_time = randint(43200, 86400)
             print(f"Sleeping for {int(sleep_time)}s")

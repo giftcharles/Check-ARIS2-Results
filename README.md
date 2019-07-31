@@ -5,8 +5,8 @@ Periodically check for results update published on the ARIS website for any give
 # How to use
 
 1. Create `credentials.py` file.
-2. Add three variables, `__username__`, `__password__` and `__waittime__`.
-3. The `__username__` variable takes your ARIS2 ID as a value, the `__password__` variable obviously takes your password and the `__waittime__` variable takes an integer that defines the amount of time to wait between each check, specified in seconds.
+2. Add three variables, `__username__`, `__password__`, `__headless__` and `__waittime__`.
+3. The `__username__` variable takes your ARIS2 ID as a value, the `__password__` variable obviously takes your password, the `__waittime__` variable takes an integer that defines the amount of time to wait between each check, specified in seconds and the `__headless__` variable takes a `0` or a `1`, when set to `0` it will not show the automated browser while checking for results and it will show it when set to `1`, if you do not set it the default is `0`.
 4. Use `0` as a value for `__waittime__` to make the script wait at a random interval between 12 and 24 hours until the next check.
 5. Run `ARIS2Results.py` to start the checks.
 
