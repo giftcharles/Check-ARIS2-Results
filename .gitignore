@@ -5,3 +5,4 @@ full_results.html
 credentials.py
 .vscode/
 __pycache__/
+debug.log
