@@ -54,14 +54,14 @@ except:
 def compare_last_table(htmlString):
 
     if not os.path.isfile("result_table.html"):
-        with open(f"result_table.html", "w", encoding="utf8") as f:
+        with open("result_table.html", "w", encoding="utf8") as f:
             f.write(htmlString)
 
         print("First time seeing the results page, the table has been saved...")
         return True
 
     try:
-        with open(f"result_table.html", "r", encoding="utf8") as f:
+        with open("result_table.html", "r", encoding="utf8") as f:
             old_html = f.read()
         
         if len(old_html)==len(htmlString):
