@@ -1,5 +1,33 @@
 #!/usr/bin/env python
 
+"""
+Check ARIS2 Results
+Periodically check for results update published on the 
+ARIS website for any given account/student
+
+How to use
+1 Create credentials.py file.
+
+2 Add three variables, __username__, __password__ and __waittime__.
+The __username__ variable takes your ARIS2 ID as a value,
+ the __password__ variable obviously takes your password and the 
+__waittime__ variable takes an integer that defines the amount of time
+ to wait between each check, specified in seconds.
+
+3 Use 0 as a value for __waittime__ to make the script wait at a random 
+interval between 12 and 24 hours until the next check.
+
+4 Run ARIS2Results.py to start the checks.
+
+When the script finds your results they will be automatically
+ downloaded into full_results.html.
+
+Requirements
+1 Python 3.x
+2 Chromedriver
+3 Chrome Browser
+"""
+
 __author__ = "Gift C. Nakembetwa"
 __copyright__ = "Copyright 2019"
 __credits__ = ["Gift C. Nakembetwa"]
@@ -28,16 +56,13 @@ def compare_last_table(htmlString):
     if not os.path.isfile("result_table.html"):
         with open(f"result_table.html", "w", encoding="utf8") as f:
             f.write(htmlString)
-            
+
         print("First time seeing the results page, the table has been saved...")
         return True
 
     try:
         with open(f"result_table.html", "r", encoding="utf8") as f:
             old_html = f.read()
-
-        #print(f"old_html: {len(old_html)}")
-        #print(f"htmlString: {len(htmlString)}")
         
         if len(old_html)==len(htmlString):
             return True
