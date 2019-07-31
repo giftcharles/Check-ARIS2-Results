@@ -3,5 +3,5 @@ geckodriver.log
 result_table.html
 full_results.html
 credentials.py
-.vscode
-__pycache__
+.vscode/
+__pycache__/
