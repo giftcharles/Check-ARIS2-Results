@@ -142,7 +142,6 @@ def navigate_aris_user(USERNAME, PASSWORD):
     print(f"The script ran for {int(time.time()-start_time)}s")    
  
 if __name__ == "__main__":
-    # Do not touch anything from this point
     username=credentials.__username__
     password=credentials.__password__
     wait_time=credentials.__waittime__
