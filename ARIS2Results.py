@@ -73,14 +73,6 @@ def compare_last_table(htmlString):
     
 
 def navigate_aris_user(USERNAME, PASSWORD):
-    """
-    This function takes a user's aris account details,
-    logs into their account and checks if new results
-    are published by comparing the length of the old
-    saved table Html and the length of the current result 
-    table html. 
-    
-    """
     start_time= time.time()
     aris_url = r"https://aris2.udsm.ac.tz/index.php"
     driver = webdriver.Chrome()
